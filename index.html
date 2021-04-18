@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<!-- CSS -->
+    <link rel="stylesheet" href="master.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root">
+        <nav>
+            <img class="logo" src="img/Netflix-logo.png">
+            <input v-model="query" @keyup.enter="search" type="text" placeholder="Cerca un film">
+        </nav>
+        <hr>
+        <section>
+            <div v-for="movie in movies" class="card">
+                <img v-if="movie.poster_path" :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt="">
+                <img v-else src="img/not_aviable.jpg">
+                <div class="info">
+                    <h3>{{ getTitle(movie) }}</h3>
+                    <h5>{{ getOriginalTitle(movie) }}</h5>
+                    <div v-if="flags.includes(movie.original_language)">
+                        <img class="flags-img" :src="`img/${movie.original_language}.png`">
+                    </div>
+                    <div v-else>{{ movie.original_language }}</div>                
+                    <h5 v-html="getStars(movie.vote_average)"></h5>
+                    <h5>{{ movie.vote_average }}</h5>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="master.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 85%;
+    margin: 0 auto;
+    background-color: #222222;
+    font-family: 'Lato', sans-serif;
+    color: rgb(209, 209, 209);
+}
+
+.logo{
+    width: 100px;
+    height: 50px;
+    float: left;
+}
+
+nav::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+
+input{
+    float: right;
+
+    margin-right: 20px;
+    height: 25px;
+    width: 300px;
+    margin-top: 20px;
+    margin: 10px 10px;
+    border-radius: 20px;
+    background-color: #384349;
+    border: none;
+    text-align: center;
+    outline: none;
+    color: #fff;
+}
+
+hr{
+    margin-bottom: 40px;
+}
+
+section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    margin-top: 100px;
+    margin: 2px 2px;
+
+    border-radius: 5px;
+    border: 1px solid black;
+
+    transition: transform .3s;
+}
+
+.card:hover{
+    transform: scale(1.2);
+    z-index: 100;
+}
+
+.info{
+    position: absolute;
+    top: 60%;
+
+    background-color: rgba(0, 0, 0, 0.712);
+    width: 100%;
+    height: 150px;
+    padding: 1px 10px;
+}
+
+h3, h4, h5, h6{
+    margin: 7px 0;
+}
+
+.flags-img{
+    width: 23px;
+    height: 15px;
+}
+
+img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
